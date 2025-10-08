@@ -9,25 +9,22 @@ on:
     branches:
       - main
 
-  # tasks
-  jobs: 
-		test:
-			runs-on: ubuntu-latest
+# tasks
+jobs: 
+  test:
+    runs-on: ubuntu-latest
 
-			steps:
-				- name: Checkout code
-				  uses: actions/checkout@v5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
 
-				- name: setup node.js
-				  uses: actions/setup-node@v5
-					with:	
-						node-version:latest
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: latest
 
-				- name: install dependencies
-					run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-				- name: run tests
-				  run: npm test
-
-					
-    
+      - name: Run tests
+        run: npm test
